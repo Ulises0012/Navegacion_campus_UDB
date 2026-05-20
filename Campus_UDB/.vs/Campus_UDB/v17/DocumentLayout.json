@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|c:\\users\\ulise\\desktop\\proyectofinalped\\navegacion_campus_udb\\campus_udb\\campus_udb\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|solutionrelative:campus_udb\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\campus_udb\\grafo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|solutionrelative:campus_udb\\grafo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\campus_udb\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|solutionrelative:campus_udb\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\campus_udb\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87AA481E-572B-48E1-86E7-CD02B4B80DDD}|Campus_UDB\\Campus_UDB.csproj|solutionrelative:campus_udb\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Grafo.cs",
+              "DocumentMoniker": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\Grafo.cs",
+              "RelativeDocumentMoniker": "Campus_UDB\\Grafo.cs",
+              "ToolTip": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\Grafo.cs",
+              "RelativeToolTip": "Campus_UDB\\Grafo.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAkwGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T02:06:06.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\MainForm.cs",
+              "RelativeDocumentMoniker": "Campus_UDB\\MainForm.cs",
+              "ToolTip": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\MainForm.cs",
+              "RelativeToolTip": "Campus_UDB\\MainForm.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T01:55:25.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Campus_UDB\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\MainForm.Designer.cs",
+              "RelativeToolTip": "Campus_UDB\\MainForm.Designer.cs",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAYwBQBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T01:47:35.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\MainForm.cs",
+              "RelativeDocumentMoniker": "Campus_UDB\\MainForm.cs",
+              "ToolTip": "C:\\Users\\ulise\\Desktop\\ProyectofinalPED\\Navegacion_campus_UDB\\Campus_UDB\\Campus_UDB\\MainForm.cs [Design]",
+              "RelativeToolTip": "Campus_UDB\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T01:00:50.662Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
