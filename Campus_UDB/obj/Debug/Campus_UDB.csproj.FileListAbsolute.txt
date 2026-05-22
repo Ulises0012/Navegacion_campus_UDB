@@ -8,3 +8,14 @@ C:\Users\ulise\Desktop\ProyectofinalPED\Navegacion_campus_UDB\Campus_UDB\obj\Deb
 C:\Users\ulise\Desktop\ProyectofinalPED\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.csproj.CoreCompileInputs.cache
 C:\Users\ulise\Desktop\ProyectofinalPED\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.exe
 C:\Users\ulise\Desktop\ProyectofinalPED\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.pdb
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\bin\Debug\Campus_UDB.exe.config
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\bin\Debug\Campus_UDB.exe
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\bin\Debug\Campus_UDB.pdb
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.csproj.AssemblyReference.cache
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.exe.config
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.MainForm.resources
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.Properties.Resources.resources
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.csproj.GenerateResource.cache
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.csproj.CoreCompileInputs.cache
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.exe
+C:\Users\ulise\Desktop\pruebaaaaa\Navegacion_campus_UDB\Campus_UDB\obj\Debug\Campus_UDB.pdb

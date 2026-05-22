@@ -22,11 +22,11 @@ namespace Campus_UDB
         {
             for (int i = 0; i < total; i++)
                 if (claves[i] == clave) return i;
+
             return -1;
         }
 
-        // ── TAREA 1 ────────────────────────────────────────────────────
-
+        
         public void AgregarEdificio(string clave, string nombre)
         {
             claves[total] = clave;
@@ -38,6 +38,7 @@ namespace Campus_UDB
         {
             int i = BuscarIndice(origen);
             int j = BuscarIndice(destino);
+
             if (i != -1 && j != -1)
             {
                 matriz[i, j] = distancia;
@@ -48,30 +49,38 @@ namespace Campus_UDB
         public string MostrarGrafo()
         {
             StringBuilder sb = new StringBuilder();
+
             sb.AppendLine("=== MAPA DEL CAMPUS ===\n");
 
             for (int i = 0; i < total; i++)
             {
                 sb.Append($"{nombres[i]} ({claves[i]}): ");
+
                 for (int j = 0; j < total; j++)
+                {
                     if (matriz[i, j] > 0)
+                    {
                         sb.Append($"-> {nombres[j]} ({claves[j]}) [{matriz[i, j]}m]  ");
+                    }
+                }
+
                 sb.AppendLine();
             }
 
             return sb.ToString();
         }
 
-        // ── TAREA 2 — BFS ──────────────────────────────────────────────
-
         public string RecorridoBFS(string inicio)
         {
             int idx = BuscarIndice(inicio);
+
             StringBuilder sb = new StringBuilder();
+
             sb.AppendLine($"=== RECORRIDO BFS desde: {nombres[idx]} ({inicio}) ===\n");
 
             bool[] visitado = new bool[total];
             Queue<int> cola = new Queue<int>();
+
             int nivel = 0;
             int totalVis = 0;
 
@@ -81,21 +90,28 @@ namespace Campus_UDB
             while (cola.Count > 0)
             {
                 int nodosEnNivel = cola.Count;
+
                 StringBuilder linea = new StringBuilder($"Nivel {nivel}: ");
 
                 for (int i = 0; i < nodosEnNivel; i++)
                 {
                     int actual = cola.Dequeue();
+
                     linea.Append($"{nombres[actual]} ({claves[actual]})");
-                    if (i < nodosEnNivel - 1) linea.Append(" | ");
+
+                    if (i < nodosEnNivel - 1)
+                        linea.Append(" | ");
+
                     totalVis++;
 
                     for (int j = 0; j < total; j++)
+                    {
                         if (matriz[actual, j] > 0 && !visitado[j])
                         {
                             visitado[j] = true;
                             cola.Enqueue(j);
                         }
+                    }
                 }
 
                 sb.AppendLine(linea.ToString());
@@ -103,83 +119,21 @@ namespace Campus_UDB
             }
 
             sb.AppendLine($"\nTotal de edificios visitados: {totalVis}");
-            return sb.ToString();
-        }
-
-        // ── TAREA 3 — DFS ──────────────────────────────────────────────
-
-        public string RecorridoDFS(string inicio, string destino)
-        {
-            int idxInicio = BuscarIndice(inicio);
-            int idxDestino = BuscarIndice(destino);
-
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"=== RECORRIDO DFS: {nombres[idxInicio]} ({inicio}) --> {nombres[idxDestino]} ({destino}) ===\n");
-
-            bool[] visitado = new bool[total];
-            List<int> camino = new List<int>();
-            List<string> visitados = new List<string>();
-
-            bool encontrado = DFSRecursivoTexto(idxInicio, idxDestino, visitado, camino, visitados);
-
-            foreach (string linea in visitados)
-                sb.AppendLine(linea);
-
-            sb.AppendLine();
-            if (encontrado)
-            {
-                int distanciaTotal = 0;
-                for (int i = 0; i < camino.Count - 1; i++)
-                    distanciaTotal += matriz[camino[i], camino[i + 1]];
-
-                string ruta = string.Join(" -> ", camino.ConvertAll(i => claves[i]));
-                sb.AppendLine($"✔ Camino encontrado:");
-                sb.AppendLine($"  {ruta}");
-                sb.AppendLine($"  Distancia total del camino: {distanciaTotal} metros");
-            }
-            else
-            {
-                sb.AppendLine($"✘ No existe camino entre {inicio} y {destino}.");
-            }
 
             return sb.ToString();
         }
 
-        private bool DFSRecursivoTexto(int actual, int destino, bool[] visitado, List<int> camino, List<string> visitados)
-        {
-            visitado[actual] = true;
-            camino.Add(actual);
-            visitados.Add($"Visitando: {nombres[actual]} ({claves[actual]})");
-
-            if (actual == destino) return true;
-
-            for (int j = total - 1; j >= 0; j--)
-            {
-                if (matriz[actual, j] > 0 && !visitado[j])
-                {
-                    if (DFSRecursivoTexto(j, destino, visitado, camino, visitados))
-                        return true;
-                }
-            }
-
-            // Backtracking: sacar del camino (pero mantener en visitados para mostrar el recorrido)
-            camino.RemoveAt(camino.Count - 1);
-            return false;
-        }
-
-        // ── Metodos publicos para el dibujo en MainForm ────────────────
-
-        public int GetTotal() => total;
-        public string GetClave(int i) => claves[i];
-        public string GetNombre(int i) => nombres[i];
-        public int GetDistancia(int i, int j) => matriz[i, j];
-        public int GetIndice(string clave) => BuscarIndice(clave);
-
-        public int[] ObtenerOrdenBFS(string inicio)
+        public (int[] orden, int[] padre) ObtenerOrdenBFS(string inicio)
         {
             bool[] visitado = new bool[total];
+            int[] padre = new int[total];
+
+            for (int i = 0; i < total; i++)
+                padre[i] = -1;
+
             Queue<int> cola = new Queue<int>();
             List<int> orden = new List<int>();
+
             int idx = BuscarIndice(inicio);
 
             cola.Enqueue(idx);
@@ -188,26 +142,125 @@ namespace Campus_UDB
             while (cola.Count > 0)
             {
                 int actual = cola.Dequeue();
+
                 orden.Add(actual);
+
                 for (int j = 0; j < total; j++)
+                {
                     if (matriz[actual, j] > 0 && !visitado[j])
                     {
                         visitado[j] = true;
+                        padre[j] = actual;
                         cola.Enqueue(j);
                     }
+                }
             }
-            return orden.ToArray();
+
+            return (orden.ToArray(), padre);
         }
 
-        public int[] ObtenerCaminoDFS(string inicio, string destino)
+        public int[] ObtenerCaminoMasCorto(string inicio, string destino)
         {
-            int idxInicio = BuscarIndice(inicio);
-            int idxDestino = BuscarIndice(destino);
+            int origen = BuscarIndice(inicio);
+            int fin = BuscarIndice(destino);
+
+            int[] distancia = new int[total];
             bool[] visitado = new bool[total];
+            int[] padre = new int[total];
+
+            for (int i = 0; i < total; i++)
+            {
+                distancia[i] = int.MaxValue;
+                padre[i] = -1;
+            }
+
+            distancia[origen] = 0;
+
+            for (int i = 0; i < total - 1; i++)
+            {
+                int actual = -1;
+                int menor = int.MaxValue;
+
+                for (int j = 0; j < total; j++)
+                {
+                    if (!visitado[j] && distancia[j] < menor)
+                    {
+                        menor = distancia[j];
+                        actual = j;
+                    }
+                }
+
+                if (actual == -1)
+                    break;
+
+                visitado[actual] = true;
+
+                for (int vecino = 0; vecino < total; vecino++)
+                {
+                    if (matriz[actual, vecino] > 0 && !visitado[vecino])
+                    {
+                        int nuevaDistancia =
+                            distancia[actual] + matriz[actual, vecino];
+
+                        if (nuevaDistancia < distancia[vecino])
+                        {
+                            distancia[vecino] = nuevaDistancia;
+                            padre[vecino] = actual;
+                        }
+                    }
+                }
+            }
+
             List<int> camino = new List<int>();
 
-            DFSRecursivoTexto(idxInicio, idxDestino, visitado, camino, new List<string>());
+            int nodo = fin;
+
+            while (nodo != -1)
+            {
+                camino.Insert(0, nodo);
+                nodo = padre[nodo];
+            }
+
             return camino.ToArray();
         }
+
+
+        public string MostrarCaminoMasCorto(string inicio, string destino)
+        {
+            int[] camino = ObtenerCaminoMasCorto(inicio, destino);
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("=== CAMINO MÁS CORTO ===\n");
+
+            int distanciaTotal = 0;
+
+            for (int i = 0; i < camino.Length; i++)
+            {
+                sb.Append($"{claves[camino[i]]}");
+
+                if (i < camino.Length - 1)
+                {
+                    distanciaTotal += matriz[camino[i], camino[i + 1]];
+                    sb.Append(" -> ");
+                }
+            }
+
+            sb.AppendLine($"\n\nDistancia total: {distanciaTotal} metros");
+
+            return sb.ToString();
+        }
+
+        
+
+        public int GetTotal() => total;
+
+        public string GetClave(int i) => claves[i];
+
+        public string GetNombre(int i) => nombres[i];
+
+        public int GetDistancia(int i, int j) => matriz[i, j];
+
+        public int GetIndice(string clave) => BuscarIndice(clave);
     }
 }

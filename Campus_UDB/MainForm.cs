@@ -114,53 +114,83 @@ namespace Campus_UDB
         private void BtnBFS_Click(object sender, EventArgs e)
         {
             ResetearColores();
+
             string origen = claves[cmbOrigen.SelectedIndex];
 
-            int[] orden = grafo.ObtenerOrdenBFS(origen);
+            var resultado = grafo.ObtenerOrdenBFS(origen);
 
-            // Colorear nodos visitados
+            int[] orden = resultado.orden;
+            int[] padre = resultado.padre;
+
             coloresNodo[orden[0]] = ColorOrigen;
+
             for (int i = 1; i < orden.Length; i++)
                 coloresNodo[orden[i]] = ColorVisitado;
 
-            // Resaltar aristas del recorrido en orden
-            for (int i = 0; i < orden.Length - 1; i++)
-                aristasResaltadas.Add(ClaveArista(orden[i], orden[i + 1]));
+            // Pintar conexiones reales BFS
+            for (int i = 0; i < orden.Length; i++)
+            {
+                int nodo = orden[i];
 
-            // Registrar visitas en TablaHash
+                if (padre[nodo] != -1)
+                {
+                    aristasResaltadas.Add(
+                        ClaveArista(nodo, padre[nodo]));
+                }
+            }
+
             foreach (int idx in orden)
-                tablaHash.RegistrarVisita(grafo.GetClave(idx), grafo.GetNombre(idx));
+            {
+                tablaHash.RegistrarVisita(
+                    grafo.GetClave(idx),
+                    grafo.GetNombre(idx));
+            }
 
             rtbResultados.Text = grafo.RecorridoBFS(origen);
+
             picGrafo.Invalidate();
         }
 
         private void BtnDFS_Click(object sender, EventArgs e)
         {
             ResetearColores();
+
             string origen = claves[cmbOrigen.SelectedIndex];
             string destino = claves[cmbDestino.SelectedIndex];
 
-            int[] camino = grafo.ObtenerCaminoDFS(origen, destino);
+            int[] camino = grafo.ObtenerCaminoMasCorto(origen, destino);
 
             if (camino.Length > 0)
             {
                 for (int i = 0; i < camino.Length; i++)
                 {
-                    if (i == 0) coloresNodo[camino[i]] = ColorOrigen;
-                    else if (i == camino.Length - 1) coloresNodo[camino[i]] = ColorDestino;
-                    else coloresNodo[camino[i]] = ColorCamino;
+                    if (i == 0)
+                        coloresNodo[camino[i]] = ColorOrigen;
+
+                    else if (i == camino.Length - 1)
+                        coloresNodo[camino[i]] = ColorDestino;
+
+                    else
+                        coloresNodo[camino[i]] = ColorCamino;
                 }
 
                 for (int i = 0; i < camino.Length - 1; i++)
-                    aristasResaltadas.Add(ClaveArista(camino[i], camino[i + 1]));
+                {
+                    aristasResaltadas.Add(
+                        ClaveArista(camino[i], camino[i + 1]));
+                }
 
-                // Registrar visitas en TablaHash
                 foreach (int idx in camino)
-                    tablaHash.RegistrarVisita(grafo.GetClave(idx), grafo.GetNombre(idx));
+                {
+                    tablaHash.RegistrarVisita(
+                        grafo.GetClave(idx),
+                        grafo.GetNombre(idx));
+                }
             }
 
-            rtbResultados.Text = grafo.RecorridoDFS(origen, destino);
+            rtbResultados.Text =
+                grafo.MostrarCaminoMasCorto(origen, destino);
+
             picGrafo.Invalidate();
         }
 
